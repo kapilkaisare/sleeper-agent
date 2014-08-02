@@ -23,7 +23,11 @@ var sleeper = ( function () {
 			if ( streams[ streamName ] ) {
 				selectedStream = streams[ streamName ];
 			} else {
-				// throw some error
+				if ( streamName ) {
+					throw new Error( "setStream(): a stream with name " + streamName + " was not found.");
+				} else {
+					throw new Error( "setStream(): first argument must be a stream name" );
+				}
 			}
 		},
 
