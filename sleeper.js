@@ -26,35 +26,6 @@ var sleeper = ( function () {
 				// throw some error
 			}
 		},
-		_makeAPIStream = function ( streamName, restUrlEndpoint, contextId, protocol ) {
-			streams[ streamName ] = ( function () {
-				var
-					sendMessageToServer = function ( messageObject ) {
-						var serverConnection = new XmlHttpRequest();
-						serverConnection.open( protocol, restUrlEndpoint, true);
-						serverConnection.send();
-					},
-					_log = function ( loggableObject ) {
-
-					},
-					_dir = function ( loggableObject ) {
-
-					},
-					_error = function ( loggableObject ) {
-
-					},
-					_warn = function ( loggableObject ) {
-
-					};
-
-				return {
-					log: null,
-					dir: null,
-					error: null,
-					warn: null
-				};
-			} ) ();
-		},
 
 		_log = function ( args ) {
 			if ( isSleeperOn && selectedStream.log ) {
