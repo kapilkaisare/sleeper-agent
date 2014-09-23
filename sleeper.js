@@ -50,6 +50,26 @@ var sleeper = ( function () {
 			if ( isSleeperOn && selectedStream.warn ) {
 				selectedStream.warn( args );
 			}
+		},
+		_trace = function () {
+			if ( isSleeperOn && selectedStream.trace ) {
+				selectedStream.trace();
+			}
+		},
+		_count = function ( args ) {
+			if ( isSleeperOn && selectedStream.count ) {
+				selectedStream.count();
+			}
+		},
+		_time = function ( args ) {
+			if ( isSleeperOn && selectedStream.time ) {
+				selectedStream.time();
+			}
+		},
+		_timeEnd = function( args ) {
+			if ( isSleeperOn && selectedStream.timeEnd ) {
+				selectedStream.timeEnd();
+			}
 		};
 
 	return {
@@ -61,6 +81,10 @@ var sleeper = ( function () {
 		log: _log,
 		dir: _dir,
 		error: _error,
-		warn: _warn
+		warn: _warn,
+		trace: _trace,
+		count: _count,
+		time: _time,
+		timeEnd: _timeEnd
 	};
 } ) ();
